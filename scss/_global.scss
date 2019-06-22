@@ -25,7 +25,7 @@ a {
 
 p {
   padding: 0;
-  margin: 0 0 30px 0;
+  margin-bottom: 30px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -150,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url(../img/logo.jpg) top center;
+  background: url(https://cdn.bglad.io/img/rspld/katie-logo-trsp.png) top center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -504,9 +504,13 @@ body.mobile-nav-active {
   background: #fff;
   padding: 80px 0;
   .about-container {
-    .background {
+    /*.background {
       min-height: 300px;
-      background: url(../img/about-img.jpg) center top no-repeat;
+      background: url(img/portrait/krc-portrait-car.jpg) center top no-repeat;
+      margin-bottom: 10px;
+    }*/
+    .about-image {
+      min-height: 300px;
       margin-bottom: 10px;
     }
     .content {
@@ -788,7 +792,7 @@ body.mobile-nav-active {
     .pic {
       margin-bottom: 15px;
       overflow: hidden;
-      height: 260px;
+      height: auto;
       img {
         max-width: 100%;
       }
@@ -831,19 +835,24 @@ body.mobile-nav-active {
   }
   .info {
     color: #333333;
-    i {
-      font-size: 32px;
-      color: $primary-color;
-      float: left;
-    }
-    p {
-      padding: 0 0 10px 50px;
-      margin-bottom: 20px;
-      line-height: 22px;
-      font-size: 14px;
-    }
-    .email p {
-      padding-top: 5px;
+    margin-bottom: 30px;
+    .info-item {
+      margin-bottom: 15px;
+      .info__icon {
+        width: 50px;
+        font-size: 50px;
+        height: auto;
+        display: inline;
+        margin-right: 10px
+      }
+      .info__text {
+        color: black;
+        display: inline;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
     }
   }
   .social-links {
@@ -863,51 +872,6 @@ body.mobile-nav-active {
       &:hover {
         background: $primary-color;
         color: #fff;
-      }
-    }
-  }
-  .form {
-    #sendmessage {
-      color: $primary-color;
-      border: 1px solid $primary-color;
-      display: none;
-      text-align: center;
-      padding: 15px;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-    #errormessage {
-      color: red;
-      display: none;
-      border: 1px solid red;
-      text-align: center;
-      padding: 15px;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-    #sendmessage.show, #errormessage.show, .show {
-      display: block;
-    }
-    .validation {
-      color: red;
-      display: none;
-      margin: 0 0 20px;
-      font-weight: 400;
-      font-size: 13px;
-    }
-    input, textarea {
-      border-radius: 0;
-      box-shadow: none;
-      font-size: 14px;
-    }
-    button[type="submit"] {
-      background: $primary-color;
-      border: 0;
-      padding: 10px 24px;
-      color: #fff;
-      transition: 0.4s;
-      &:hover {
-        background: #51d8ad;
       }
     }
   }
