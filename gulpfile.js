@@ -3,26 +3,36 @@
 const { join, resolve }  = require('path');
 
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const gulpSass = require('gulp-sass');
 
 const SASS_DIR = resolve(__dirname, 'scss');
 const CSS_DIR = resolve(__dirname, 'css');
 
 const SASS_RE = SASS_DIR + '/**/*.scss';
 
+console.log(`GulpFile Loaded:\n  css dir: ${CSS_DIR}\n  sass dir: ${SASS_DIR}`)
+
 
 // SASS
-gulp.task('sass', function() {
-  return gulp.src(SASS_RE)
-              .pipe(sass().on('error', sass.logError))
-              .pipe(gulp.dest(CSS_DIR));
-});
+function sass() {
+ return gulp
+          .src(SASS_RE)
+          .pipe(gulpSass().on('error', gulpSass.logError))
+          .pipe(gulp.dest(CSS_DIR));
+}
 
-gulp.task('sass:watch', function() {
-  gulp.watch(SASS_RE, ['sass']);
-});
+function sassWatch () {
+  return gulp.watch(SASS_RE, gulp.series(sass));
+}
 
-gulp.task('watch', ['sass:watch']);
+const watch = gulp.series(sassWatch);
 
 // DEFAULT
-gulp.task('default', ['sass']);
+const build = gulp.series(sass);
+
+
+module.exports = {
+  sass,
+  watch,
+  default: build
+}
